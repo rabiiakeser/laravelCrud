@@ -12,12 +12,13 @@ class ProductController extends Controller
     public function index()
     {
         $veri=DB::table("products")->get();
+     
         // return view('products.index',compact('veri'));
-        return view('products.index',['products'=> $veri]);
+        return view('pages.tables',['products'=> $veri]);
     }
     public function create()
     {
-        return view('products.create');
+        return view('pages.create');
     }
 
     public function store(Request $request)
@@ -44,7 +45,7 @@ class ProductController extends Controller
     }
     public function edit(Product $product){ 
         // return view ('products.edit',['product'=> $request]);
-        return view('products.edit', compact('product'));
+        return view('pages.edit', compact('product'));
 
     }
     public function update( Product $product,Request $request){
